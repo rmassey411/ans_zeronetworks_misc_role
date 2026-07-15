@@ -1,0 +1,19 @@
+---
+# Linux-specific tasks for ans_zeronetworks_misc_role
+- name: Copy breakglass PowerShell script to Linux host.
+  copy:
+    src: breakglass.ps1
+    dest: /tmp/breakglass.ps1
+    mode: '0755'
+    force: yes
+
+- name: Run breakglass PowerShell script on Linux.
+  shell: |
+    pwsh -NoProfile -ExecutionPolicy Bypass -File /tmp/breakglass.ps1 \
+      -asset "{{ breakglass_asset }}" \
+      -linux "{{ breakglass_linux }}" \
+      -linuxusesshkey "{{ breakglass_linuxusesshkey }}" \
+      -network "{{ breakglass_network }}" \
+      -mode "{{ breakglass_mode }}"
+  args:
+    executable: /bin/bash

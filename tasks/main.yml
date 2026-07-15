@@ -1,0 +1,7 @@
+---
+# tasks file for ans_zeronetworks_misc_role
+- name: Include OS-specific variables.
+  ansible.builtin.include_vars: "{{ ansible_system }}.yml"
+
+- name: Include OS-specific tasks.
+  ansible.builtin.include_tasks: "{{ ansible_system }}.yml"

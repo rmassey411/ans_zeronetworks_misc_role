@@ -1,0 +1,12 @@
+---
+# defaults file for ans_zeronetworks_misc_role
+breakglass_asset: asset
+breakglass_linux: linux
+breakglass_linuxusesshkey: linuxusesshkey
+breakglass_network: network
+breakglass_mode: mode
+
+breakglass_ipaddress: 127.0.0.1
+breakglass_windows: windows
+breakglass_network: network
+breakglass_mode: mode

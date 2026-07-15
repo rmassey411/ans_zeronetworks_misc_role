@@ -1,0 +1,6 @@
+---
+# vars file for ans_zeronetworks_misc_role
+# cred name for the breakglass account
+group1: "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/linux_group1', engine_mount_point='secret') }}"
+group2: "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/linux_group2', engine_mount_point='secret') }}"
+group3: "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/linux_group3', engine_mount_point='secret') }}"

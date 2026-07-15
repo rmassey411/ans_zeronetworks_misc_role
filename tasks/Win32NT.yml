@@ -1,0 +1,17 @@
+---
+# Windows-specific tasks for ans_zeronetworks_misc_role
+- name: Copy breakglass PowerShell script to Windows host.
+  ansible.windows.win_copy:
+    src: breakglass.ps1
+    dest: C:\Windows\Temp\breakglass.ps1
+    force: yes
+
+- name: Run breakglass PowerShell script on Windows.
+  ansible.windows.win_shell: |
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Windows\Temp\breakglass.ps1" \
+      -ipaddress "{{ breakglass_ipaddress }}" \
+      -windows "{{ breakglass_windows }}" \
+      -network "{{ breakglass_network }}" \
+      -mode "{{ breakglass_mode }}"
+  args:
+    executable: powershell.exe
