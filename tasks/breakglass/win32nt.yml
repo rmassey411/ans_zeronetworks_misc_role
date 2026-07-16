@@ -12,6 +12,8 @@
       -ipaddress "{{ breakglass_ipaddress }}" \
       -windows "{{ breakglass_windows }}" \
       -network "{{ breakglass_network }}" \
-      -mode "{{ breakglass_mode }}"
+      -mode "{{ breakglass_mode }}" \
+      -ADUserName "{{ win_username }}" \
+      -ADSvcPassword "{{ win_userpass }}"
   args:
     executable: powershell.exe

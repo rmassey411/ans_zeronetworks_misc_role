@@ -11,12 +11,15 @@
   ansible.builtin.shell: |
     pwsh -NoProfile -ExecutionPolicy Bypass -File /tmp/breakglass.ps1 \
       -targetNode "{{ targetNode }}" \
-      -segmentServer "{{ segmentServer }}" \
       -deploymentCluster "{{ deploymentCluster }}" \
+      -Linux \
+      -LinuxUseSSHKey \
+      -LinuxSSHKeyPath "{{ ssh_key_path }}" \
       -mode "{{ mode }}"
   args:
     executable: /bin/bash
   register: output
+  delegate_to: "{{ segmentServer }}"
 
 - name: Print output
   ansible.builtin.debug:

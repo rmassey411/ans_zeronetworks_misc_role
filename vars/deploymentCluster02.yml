@@ -1,0 +1,4 @@
+# vars file for ans_zeronetworks_misc_role
+ssh_key_path:  "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/group2/sshkey', engine_mount_point='secret') }}"
+win_username:  "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/group2/winuser', engine_mount_point='secret') }}"
+win_userpass:  "{{ lookup('community.hashi_vault.vault_kv2_get', 'breakglass/group2/winpasswd', engine_mount_point='secret') }}"

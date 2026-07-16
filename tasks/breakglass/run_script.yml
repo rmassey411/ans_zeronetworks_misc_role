@@ -3,5 +3,8 @@
 - name: Include OS-specific variables.
   ansible.builtin.include_vars: "{{ ansible_system | lower }}.yml"
 
+- name: Include cluster specific variables.
+  ansible.builtin.include_vars: "{{ deploymentCluster }}.yml"
+
 - name: Include OS-specific tasks.
   ansible.builtin.include_tasks: "breakglass/{{ ansible_system | lower }}.yml"
